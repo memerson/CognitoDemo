@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace CognitoDemo.Client.Utility
 {
+    /// <summary>
+    /// Strikes a balance between optimizing socket and connection reuse
+    /// while also avoiding stale DNS data. The best we can do without access
+    /// to HttpClientFactory of .NET Core.
+    /// </summary>
     public interface IHttpClientGovernor : IDisposable
     {
         Task<T> ExecuteAsync<T>(Func<HttpClient, Task<T>> action, CancellationToken cancellationToken);
@@ -108,7 +113,7 @@ namespace CognitoDemo.Client.Utility
 
         private bool IsHttpClientExpired
         {
-            get { return DateTime.Now < _lastExpirationTime + HttpClientLifespan; }
+            get { return DateTime.Now > _lastExpirationTime + HttpClientLifespan; }
         }
 
         private async Task CleanupExpiredHttpClientsAsync(CancellationToken cancellationToken)

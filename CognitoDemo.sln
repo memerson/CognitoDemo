@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CognitoDemo.Client", "CognitoDemo.Client\CognitoDemo.Client.csproj", "{C893372E-D143-4F4C-931A-F714AEFE9F01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CognitoDemo.Api", "CognitoDemo.Api\CognitoDemo.Api.csproj", "{E25FCBA2-F8CD-4C24-8B37-034AA3BE6974}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C893372E-D143-4F4C-931A-F714AEFE9F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C893372E-D143-4F4C-931A-F714AEFE9F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C893372E-D143-4F4C-931A-F714AEFE9F01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E25FCBA2-F8CD-4C24-8B37-034AA3BE6974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E25FCBA2-F8CD-4C24-8B37-034AA3BE6974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E25FCBA2-F8CD-4C24-8B37-034AA3BE6974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E25FCBA2-F8CD-4C24-8B37-034AA3BE6974}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
