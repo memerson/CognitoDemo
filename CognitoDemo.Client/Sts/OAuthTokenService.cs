@@ -1,12 +1,12 @@
-﻿using System;
+﻿using CognitoDemo.Client.Utility;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using CognitoDemo.Client.Utility;
-using Newtonsoft.Json;
 
 namespace CognitoDemo.Client.Sts
 {
@@ -68,11 +68,12 @@ namespace CognitoDemo.Client.Sts
             });
 
             HttpResponseMessage httpResponseMessage;
-            using (HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, _tokenEndpoint))
+            using (var requestMessage = new HttpRequestMessage(HttpMethod.Post, _tokenEndpoint))
+            using (urlEncodedContent)
             {
                 requestMessage.Headers.Authorization =
                     new AuthenticationHeaderValue("Basic", authenticationHeaderValue);
-                requestMessage.Content = (HttpContent)urlEncodedContent;
+                requestMessage.Content = urlEncodedContent;
                 httpResponseMessage = await _httpClientGovernor
                     .ExecuteAsync(httpClient => httpClient.SendAsync(requestMessage, cancellationToken), cancellationToken)
                     .ConfigureAwait(false);
